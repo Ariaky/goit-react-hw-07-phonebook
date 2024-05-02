@@ -14,13 +14,13 @@ const contactsInitialState = {
     error: null,
   };
 
-const contactSlice = createSlice({
+/*const contactSlice = createSlice({
   name: 'contacts',
   initialState: { 
     list: contactsInitialState,
     filter: ''
   },
-/*  reducers: {
+    reducers: {
     addContact(state, action) {
       state.list.push(action.payload);
     },
@@ -30,8 +30,8 @@ const contactSlice = createSlice({
     updateFilter(state, action) {
       state.filter = action.payload;
     }
-  }*/
-});
+  }
+});*/
 
 /*const persistConfig = {
   key: 'contacts',
