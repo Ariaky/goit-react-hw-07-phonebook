@@ -12,7 +12,7 @@ const contactsInitialState = {
       deletedContactId: null,
     },
     error: null,
-  };
+};
 
 /*const contactSlice = createSlice({
   name: 'contacts',
