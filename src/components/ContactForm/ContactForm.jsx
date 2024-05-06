@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { addContact } from '../../redux/operations';
 import { useState } from 'react';
@@ -9,8 +9,8 @@ import css from './ContactForm.module.css';
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({ name: '', number: '' });
-  const nameId = nanoid();
-  const tagId = nanoid();
+  /*const nameId = nanoid();
+  const tagId = nanoid();*/
   const handleChange = e => {
     const { name, value } = e.currentTarget;
     setFormData(prevData => ({ ...prevData, [name]: value }));
@@ -18,8 +18,26 @@ export const ContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(addContact({ ...formData, id: nanoid() }));
+   /* dispatch(addContact({ ...formData, id: nanoid() }));
     setFormData({ name: '', number: '' });
+    */
+    const { name, number } = formData;
+    const contactExists = contacts.some(
+      contact => contact.name.toLowerCase() === name.toLowerCase().trim() || contact.number === number.trim()
+    );
+    if (contactExists) {
+      toast.warn(`${contactExists ? formData[contactExists] : name} is already in your contacts`, {
+        position: 'top-right',
+        theme: 'colored',
+      });
+    } else {
+      dispatch(addContact({ ...formData, id: nanoid() }));
+      toast.success(`New contact "${name}" has been added successfully`, {
+        position: 'top-right',
+        theme: 'colored',
+      });
+      setFormData({ name: '', number: '' });
+    }
   };
 
   return (
