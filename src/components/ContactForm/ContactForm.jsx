@@ -1,16 +1,18 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { addContact } from '../../redux/operations';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { selectItems } from '../../redux/selectors'
 
 import css from './ContactForm.module.css';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({ name: '', number: '' });
-  /*const nameId = nanoid();
-  const tagId = nanoid();*/
+  const nameId = nanoid();
+  const tagId = nanoid();
+
   const handleChange = e => {
     const { name, value } = e.currentTarget;
     setFormData(prevData => ({ ...prevData, [name]: value }));
