@@ -9,6 +9,7 @@ import css from './ContactForm.module.css';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(selectItems);
   const [formData, setFormData] = useState({ name: '', number: '' });
   const nameId = nanoid();
   const tagId = nanoid();
