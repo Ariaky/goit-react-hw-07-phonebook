@@ -2,11 +2,14 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/operations';
 import css from './ContactList.module.css';
-import { selectContact } from '../../redux/selectors';
+import { selectContact, selectFetchContacts, selectError } from '../../redux/selectors';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContact);
   const dispatch = useDispatch();
+  const error = useSelector(selectError);
+  const isLoading = useSelector(selectFetchContacts);
+
   return (
     <ul className={css.wrapper}>
       {contacts.map(({ id, name, number }) => (   
