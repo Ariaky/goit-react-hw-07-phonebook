@@ -4,6 +4,7 @@ import css from './ContactList.module.css';
 import { selectContact, selectFetchContacts, selectError } from '../../redux/selectors';
 import Loader from 'components/Loader/Loader';
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContact);
@@ -14,6 +15,15 @@ export const ContactList = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (error) {
+      toast.error(`Sorry, error is occurred`, {
+        position: 'top-right',
+        theme: 'colored',
+      });
+    }
+  }, [error]);
 
   return (
     <>

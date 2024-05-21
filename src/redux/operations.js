@@ -11,14 +11,15 @@ export const fetchContacts = createAsyncThunk(
         const response = await axios.get('/contacts');
         return response.data;
       } catch (error) {
-        toast.error(`Sorry, error is occurred`, {
+       /* toast.error(`Sorry, error is occurred`, {
           position: 'top-right',
           theme: 'colored',
-        });
+        });*/
         return thunkAPI.rejectWithValue(error.message);
       }
     }
   );
+  console.log('fetchContacts', fetchContacts);
   
   export const addContact = createAsyncThunk(
     'contacts/addContact',
