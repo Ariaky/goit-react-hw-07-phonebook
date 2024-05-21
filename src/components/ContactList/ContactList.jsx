@@ -19,9 +19,9 @@ export const ContactList = () => {
     <>
       {isLoading && !error && <Loader />}
         <ul className={css.wrapper}>
-        {contacts.map(({ id, name, number }) => (   
+        {contacts.map(({ id, name, phone }) => (   
             <li className={css.contact} key={id}>
-            {name}: {number}{' '}
+            {name}: {phone}{' '}
             <button className={css.button} type="button" onClick={() => dispatch(deleteContact(id))}>
                 Delete
             </button>
