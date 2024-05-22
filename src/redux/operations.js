@@ -19,7 +19,6 @@ export const fetchContacts = createAsyncThunk(
       }
     }
   );
-  console.log('fetchContacts', fetchContacts);
   
   export const addContact = createAsyncThunk(
     'contacts/addContact',

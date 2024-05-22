@@ -1,16 +1,18 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchContacts, deleteContact } from '../../redux/operations';
-import css from './ContactList.module.css';
-import { selectContact, selectFetchContacts, selectError } from '../../redux/selectors';
-import Loader from 'components/Loader/Loader';
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchContacts, deleteContact } from '../../redux/operations';
+import { selectContact, selectFetchContacts, selectError } from '../../redux/selectors';
+
+import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
+import css from './ContactList.module.css';
 
 export const ContactList = () => {
-  const contacts = useSelector(selectContact);
   const dispatch = useDispatch();
-  const error = useSelector(selectError);
+  const contacts = useSelector(selectContact);
   const isLoading = useSelector(selectFetchContacts);
+  const error = useSelector(selectError);
+  
 
   useEffect(() => {
     dispatch(fetchContacts());
