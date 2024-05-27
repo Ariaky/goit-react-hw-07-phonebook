@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts, deleteContact } from '../../redux/operations';
-import { selectContact, selectFetchContacts, selectError } from '../../redux/selectors';
+import { selectContacts, selectFetchContacts, selectError } from '../../redux/selectors';
 
 import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
@@ -9,7 +9,7 @@ import css from './ContactList.module.css';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContact);
+  const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectFetchContacts);
   const error = useSelector(selectError);
   
