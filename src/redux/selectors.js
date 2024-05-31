@@ -12,7 +12,7 @@ export const selectContacts = createSelector(
     [selectItems, selectFilterValue],
     (contacts,filter) => {
         return contacts.filter(contact =>
-            contact.name.toLowerCase().includes(filter.toLowCase())
+            contact.name.toLowerCase().includes(filter.toLowerCase())
             );
     }
 );
