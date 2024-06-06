@@ -21,9 +21,6 @@ export const ContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-   /* dispatch(addContact({ ...formData, id: nanoid() }));
-    setFormData({ name: '', number: '' });
-    */
     const { name, number } = formData;
     const contactExists = contacts.some(
       contact => contact.name.toLowerCase() === name.toLowerCase().trim() || contact.number === number.trim()
